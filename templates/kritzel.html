@@ -1,0 +1,51 @@
+{% extends "site.html" %}
+{% block header %}
+<style>
+
+body { padding-top: 0px !important; }
+
+#kritzel {
+	
+	width: 474px;
+	margin-top: 150px;
+	margin-left: 27px;
+	height: 601px;
+	float: left;
+
+}
+
+
+#pdiv {
+		width: 1px;
+		height: 601px;
+		margin-top: 150px;
+		float: left;
+}
+		
+</style>
+
+{% endblock %}
+{% block body %}
+
+ <div style="height: 780px; background: url({{ url_for('static',filename='img/background_blurred.png')}}) no-repeat;">
+ <iframe frameborder=0 id="kritzel" ></iframe>
+ <div id="pdiv" data-placement="right" data-title="Einfaches Einbetten" data-content="dpa live können Sie innerhalb weniger Sekunden in ihre Website einbinden - ganz ähnlich wie ein Video von YouTube."></div>
+ </div>
+
+
+
+{% endblock %}
+{% block javascript %}
+<script>
+(function($) {
+	$(document).ready(function() {
+		var $f=$("iframe"); 
+		$f.attr("src","http://demo.dpa-newslab.com/kritzel/demo/app/#"+document.location.href.match(/\?(.*)$/)[1]);
+		$("#pdiv").popover('show');
+	});
+	
+})(jQuery);
+
+</script>
+
+{% endblock %}

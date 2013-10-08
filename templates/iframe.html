@@ -1,0 +1,27 @@
+{% extends "site.html" %}
+{% block body %}
+
+<div class="container">
+
+ <div class="row">
+
+ <div class="col-lg-2">
+ </div> 
+ <div class="col-lg-8">
+	<div style="text-align:center">
+	<img src="{{ url_for('static',filename='img/loader.gif') }}"/>
+	<h3>Wird geladen</h3>
+	<br/>
+	{% if event %}
+	{{ event.url|urlize(40)}}
+	{% endif %}
+	</div>
+ </div>
+
+ </div>
+
+</div>
+
+
+
+{% endblock %}

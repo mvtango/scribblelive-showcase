@@ -1,0 +1,75 @@
+{% extends "site.html" %}
+{% block title %} {{ event.title }} | {% endblock %}
+
+{% block content %}
+<div class="row">
+<div class="col-lg-12" style="height: 10px"></div>
+
+</div>
+<div class="row">
+
+ <div class="col-lg-4">
+ </div>
+ <div class="col-lg-8">
+	 <ul class="nav nav-tabs">
+	 {% for t in event.tickers[:3] %}
+		<li><a href="#tab{{ loop.index }}" data-toggle="tab">{{ t.title }}</a></li>
+	 {% endfor %}
+	 {% if (event.tickers|length)>3 %}
+		<li class="dropdown"><a href="#" id="ddmenu" class="dropdown-toggle" data-toggle="dropdown">weitere <b class="caret"></b></a>
+			<ul class="dropdown-menu" role="menu" aria-labelledby="ddmenu">
+			{% for t in event.tickers[3:] %}
+				<li><a href="#tab{{ loop.index+3}}" tabindex="-1" data-toggle="tab">{{ t.title }}</a></li>
+			{% endfor %}
+			</ul>
+		</li>
+	  {% endif %}
+	 </ul>
+ </div>
+ </div>
+ <div class="row">
+   <div class="col-lg-4">
+	<div class="well">
+	<h3>{{ event.title }}</h3> 
+	<p>{{ event.summary }}</p>
+	</div>
+   </div>
+   <div class="col-lg-8">
+	 <div class="tab-content">
+	 {% for t in event.tickers %}
+		<div class="tab-pane" id="tab{{ loop.index }}">
+		<div class="well">
+		  <p>{{ t.displayurl|default(t.url)|urlize(60,false) }}</p> 
+		  <iframe frameborder=0 style="width: {{ t.width|default('1044') }}px; height: {{ t.height|default('1000') }}px; border=0px; -ms-zoom: {{ t.zoom|default(0.68) }}; -moz-transform: scale({{ t.zoom|default(0.68) }}); -moz-transform-origin: 0 0; -o-transform: scale({{ t.zoom|default(0.68) }}); -o-transform-origin: 0 0; -webkit-transform: scale({{ t.zoom|default(0.68)  }}); -webkit-transform-origin: 0 0;" data-url="{{ t.url }}" data-zoom="{{ t.zoom|default(0.68) }}" src="{{ url_for('iframe') }}"></iframe>
+		</div>
+		</div>
+	 {% endfor %}
+	 </div>
+ </div>
+</div>
+<a href="{{ url_for('kritzel') }}"></a>
+
+{% endblock %}
+
+{% block javascript %}
+<script>
+(function($) {
+	$('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+		var tid=$(e.target).attr("href").match(/(#.*)/)[1];
+		var $h=$(tid+" iframe");
+		var s=$h.attr("src");
+		if (s.match(/\/iframe\.html/)) {
+			$h.attr("src",$h.attr("data-url"));
+			$(tid+" .well").css({height: 80+($(tid+" iframe").height()*$h.attr("data-zoom"))+"px"});
+			if ($h.attr("src").match(/\/kritzel\//)) {
+				$h.css({ width: "600px"});
+			}	
+		}
+	});
+	$('a[data-toggle="tab"]:first').tab('show');
+	
+   
+})(jQuery);
+
+</script>
+{% endblock %}

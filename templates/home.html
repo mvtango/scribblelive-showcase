@@ -1,0 +1,61 @@
+{% extends "site.html" %}
+
+{% block content %}
+<div class="jumbotron">
+<h1>
+dpa<span class="gruen"><span style="display: inline-block; position: relative; top: 0.1em; width: 0.8em;text-align: center;">&#x2022;</span>live</span>
+</h1>
+
+</div>
+
+
+<div class="row">
+        <div class="col-lg-4">
+          <h2>Journalismus in Echtzeit</h2>
+          <p>Mit dpa<span style="display: inline-block; position: relative; top: 0.1em; width: 0.8em;text-align: center;">&#x2022;</span>live 
+          können Sie Ihre Lesern mit den vielfältigen 
+Möglichkeiten des Live-Bloggings noch enger an sich binden. dpa als Partner für Technologie und Inhalte 
+liefert dafür den richtigen Content und mit ScribbleLive ein 
+professionelles Echtzeit-Redaktionssystem.</p>
+        </div>
+        <div class="col-lg-4">
+          <h2>Alle Stärken des Internet</h2>
+          <p>Ihre Leser können interessante Ereignisse live auf
+Ihrer Website verfolgen und kommentieren - ergänzt durch die Berichterstattung der dpa,
+kuratierte Beiträge aus sozialen Medien, Fotos, Infografiken und 
+Beiträge von Reportern und Kommentatoren aus Ihrer Redaktion.</p>
+       </div>
+        <div class="col-lg-4">
+          <h2>In der Praxis erprobt</h2>
+          <p>dpa<span style="display: inline-block; position: relative; top: 0.1em; width: 0.8em;text-align: center;">&#x2022;</span>live wurde in einer mehrmonatigen Probephase 
+          zusammen mit Kunden und dem Technologiepartner ScribbleLive erprobt und weiterentwickelt.
+          Auf dieser Website finden Sie einige Beispiele für 
+          Echtzeit-Berichterstattung mit ScribbleLive und dpa. 
+          </p>
+        </div>
+      
+</div>
+<div class="row" style="height: 20px"></div>
+<div class="well" id="kontakt">
+	<div class="row" >
+	      <div class="col-lg-9">
+          <h2 style="padding-top:0px; margin-top: 0px;">Fragen? Anregungen? Sprechen Sie uns an!</h2>
+          <p>dpa-infocom GmbH<br/>
+		     Christoph Dernbach<br/>
+			 Mittelweg 38 | 20148 Hamburg<br/>
+			 Fon: 030 / 2852-32130<br/>
+             Fax: 030 / 2852-32967<br/>
+             E-Mail: christoph.dernbach@dpa-info.com<br/>
+		  </p>
+		  </div>
+		  <div class="col-lg-1">
+			<br />
+			<br />
+			<br />
+			<p><a 
+			style="display:inline-block;" class="btn btn-primary" href="{{ url_for('static',filename='20131007-dpa-live.pdf')}}">Flyer herunterladen (PDF) &raquo;</a></p>
+          </div>
+          
+    </div>
+</div>
+{% endblock %}
