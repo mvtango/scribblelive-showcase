@@ -16,7 +16,7 @@ class Config(object):
     EVENTS=events
     FREEZER_RELATIVE_URLS=False
     FREEZER_BASE_URL="http://demo.dpa-newslab.com/scribblelive/"
-    FREEZER_DESTINATION="../../googleio/scribblelive"
+    FREEZER_DESTINATION="../site/scribblelive"
     FREEZER_REMOVE_EXTRA_FILES=False
     
 

@@ -3,11 +3,11 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Showcase für dpa &middot; live">
+    <meta name="description" content="Showcase für dpa-Live">
     <meta name="author" content="Martin Virtel">
     <link rel="shortcut icon" href="{{ url_for('static',filename='favicon.ico') }}">
 
-    <title>{% block title %} {% endblock %} dpa live showcase</title>
+    <title>{% block title %} {% endblock %} dpa-Live showcase</title>
     <link href="{{ url_for('static',filename='css/functionpro.css')}}" rel="stylesheet">
 
     <!-- Bootstrap core CSS -->
@@ -29,7 +29,7 @@
     <div class="container">
 
       <div class="masthead">
-        <h3 style="cursor: pointer" onClick="document.location.href='{{ url_for('home') }}'">dpa<span class="gruen"><span style="display: inline-block; position: relative; top: 0.1em; width: 0.8em;text-align: center;">&#x2022;</span>live</span></h3>
+        <h3 style="cursor: pointer" onClick="document.location.href='{{ url_for('home') }}'">dpa<span class="gruen"><span style="display: inline-block; position: relative; top: 0.1em; width: 0.8em;text-align: center;">&#x2022;</span>Live</span></h3>
         <ul class="nav nav-justified">
           <li><a href="{{ url_for('home') }}"><span class="glyphicon glyphicon-home"></span></a></li>
           {% for e in config.EVENTS %}
